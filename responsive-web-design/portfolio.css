@@ -1,0 +1,106 @@
+*{
+  margin:0;
+  padding:0;
+  font-family:verdana;
+}
+#navbar{
+  position:fixed;
+  width:100%;
+  display:flex;
+  justify-content:right;
+  height:50px;
+  background-color:#2A629A
+;
+z-index:1;}
+nav a{
+  color:white;
+  margin: auto 8px;
+  text-decoration:none;
+}
+main{ 
+  position:absolute;
+  top:50px;
+}
+
+#welcome-section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-items:center;
+  height:100vh;
+  width:100vw;
+  color:#FF7F3E;
+  background-color:#003285;
+}
+#welcome-section h1,p{
+  position:relative;
+  top:40vh;
+}
+img{
+  height:50vh;
+  width:40vw;
+}
+#projects{
+  height:100vh;
+  width:100vw;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
+}
+figcaption{
+  text-align:center;
+}
+.description{
+  width:calc(100%- 100px);
+  text-align:center;
+  margin:20px 10px;
+
+}
+#contacts{
+  background-color:#FFDA78;
+  height:70vh;
+}
+#contacts h1{
+  position:relative;
+  top:30%;
+  color:#003285;
+}
+.links{
+  display:flex;
+  position:relative;
+top:40%;
+align-items:center;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
+}
+.fa{
+  position:relative;
+  top:40%;
+  text-decoration:none;
+  font-size:18px;
+  color:#003285;
+}
+#footer{
+  position:relative;
+  top:80%;
+  border-top:3px solid black;
+  padding-top:5px;
+  text-align:center;
+}
+@media (max-width:600px){
+  h1{
+    font-size:15px;
+
+  }
+  p{
+    font-size:10px;
+  }
+}
+@media (min-width:1000px){
+  img{
+    width:300px;
+    height:300px;
+  }
+  #projects{
+	height:50vh;
+}

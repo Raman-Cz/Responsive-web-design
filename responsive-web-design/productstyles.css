@@ -1,0 +1,171 @@
+*{
+  margin:0;
+  padding:0;
+}
+#header-img{
+  width:100px;
+  height:90px;
+  position:absolute;
+  top:0px;
+}
+#title{
+  margin-left:10px;
+  position:absolute;
+  top:10px;
+  left:calc(100% - 350px);
+  font-weight:bold;
+  font-size:40px;
+  color:black;
+  font-family:courier;
+  font-style:italic;
+}
+#subtitle{
+  margin-left:10px;
+  width:250px;
+  position:absolute;
+  top:50px;
+  left:calc(100% - 350px);
+  font-weight:bold;
+  font-size:15px;
+  color:black;
+  font-family:courier;
+  font-style:italic;
+  text-align:left;
+}
+header{
+  position:fixed;
+  width:100%;
+  
+background:linear-gradient(#DEE4EA,#F9FCFF);
+}
+img,#title,#subtitle{
+  margin-top:40px;
+}
+nav{
+  padding:10px;
+  display:flex;
+  
+  width:100%;
+  height:20vh;
+  z-index:1;
+  background-color:white;
+}
+
+#nav-bar{
+  border-bottom:2px solid;
+top:0;
+ text-align:center;
+}
+.nav-link{
+  margin:0 10px;
+  margin-top:10px;
+  font-weight:bold;
+  text-decoration:none;
+  color:#000;
+  font-family:courier;
+}
+
+main{
+  position:absolute;
+  top:140px;
+  z-index:-1;
+  width:100vw;
+  background-color:#ddd;
+}
+
+input{
+  font-size:20px;
+  margin:2px;
+  padding:2px;
+  border-radius:5px;
+  border:none;
+}
+.label{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#submit{
+  font-size:20px;
+  padding:1px;
+  border-radius:5px;
+  border:none;
+}
+#submit:hover{
+  color:white;
+  background-color:#111;
+  cursor:pointer;
+}
+.email-form p{
+  font-weight:700;
+  padding:10px;
+  padding-top:40px;
+  text-align:center;
+  font-family:courier;
+  font-size:20
+}
+#description{
+  margin-top:40px;
+  font-weight:700;
+  padding:10px;
+  text-align:center;
+  font-family:courier;
+  font-size:20;
+}
+.vase img{
+  width:200px;
+  height:200px;
+  border-radius:10%;
+}
+#products,.price,.cart,#contact{
+  display:flex;
+  justify-content:space-evenly;
+  margin-bottom:10px;
+}
+.price button,.cart button{
+  width:200px;
+  height:30px;
+  border:none;
+  border-radius:5px;
+  background-color:black;
+  color:white;
+}
+.price button:hover,.cart button:hover{
+  background-color:white;
+  color:black;
+  cursor:pointer;
+}
+.cart button{
+  margin-top:-5px;
+}
+.video{
+  text-align:center;
+}
+.video iframe{
+  margin-top:10px;
+}
+.fa{
+  font-size:40px;
+  margin-bottom:10px;
+  padding-bottom:10px;
+  text-decoration:none;
+  color:black;
+}
+@media (min-width:1000px){
+  .vase img{
+    width:300px;
+    height:300px;
+  }
+  .price button,.cart button{
+    width:300px;
+  }
+}
+@media (max-width:600px){
+  .vase img{
+    width:150px;
+    height:150px;
+  }
+  .price button,.cart button{
+    width:150px;
+  }
+}

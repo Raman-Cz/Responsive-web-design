@@ -1,0 +1,594 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="documentstyles.css">
+  </head>
+
+  <body>
+      <main id="main-doc">
+          <nav id="navbar">
+          <header id="title">A summary of <b>Introduction to Algorithms</b>(by <em>Thomas H. Cormen, Charles E. Leiserson,Ronald L. Rivest, Clifford Stein</em> )</header>
+          <ul>
+          <li><a class="nav-link" href="#Foundations">Foundations</a></li>
+          <li><a class="nav-link" href="#Sorting_and_Order_Statistics">Sorting and Order Statistics</a></li>
+          <li><a class="nav-link" href="#Data_Structures">Data Structures</a></li>
+          <li><a class="nav-link" href="#Advanced_Design_and_Analysis_Techniques">Advanced Design and Analysis Techniques</a></li>
+          <li><a class="nav-link" href="#Advanced_Data_Structures">Advanced Data Structures</a></li>
+          <li><a class="nav-link" href="#Graph_Algorithms">Graph Algorithms</a></li>
+          <li><a class="nav-link" href="#Selected_Topics">Selected Topics</a></li>
+        </nav>
+        <section class="main-section" id="Foundations">
+          <header>Foundations</header>
+          <p>When you design and analyze algorithms, you need to be able to describe how they 
+operate and how to design them. You also need some mathematical tools to show 
+that your algorithms do the right thing and do it efûciently.</p>
+          <p>Foundations of algorithms in Data Structures and Algorithms (DSA) encompass essential concepts and techniques vital for problem-solving in computer science. This includes analyzing algorithms' efficiency through time and space complexity, understanding asymptotic notations for performance comparison, mastering recursion, sorting, and searching algorithms. Additionally, proficiency in data structures like arrays, linked lists, trees, heaps, hash tables, and graphs is crucial. Techniques such as dynamic programming and greedy algorithms play pivotal roles in problem-solving strategies. Moreover, familiarity with graph algorithms, string algorithms, and number theory algorithms further enhances one's problem-solving abilities. Mastering these fundamentals forms the cornerstone for tackling more complex computational challenges effectively.</p>
+          
+        </section>
+        <section class="main-section" id="Sorting_and_Order_Statistics">
+          
+          <header>Sorting and Order Statistics</header>
+          
+          <p>In practice, the numbers to be sorted are rarely isolated values. Each is usually part 
+of a collection of data called a record. Each record contains a key, which is the 
+value to be sorted. The remainder of the record consists of satellite data, which are 
+usually carried around with the key. In practice, when a sorting algorithm permutes 
+the keys, it must permute the satellite data as well. If each record includes a large 
+amount of satellite data, it often pays to permute an array of pointers to the records 
+rather than the records themselves in order to minimize data movement. 
+In a sense, it is these implementation details that distinguish an algorithm from 
+a full-blown program. A sorting algorithm describes the method to determine the 
+sorted order, regardless of whether what’s being sorted are individual numbers or 
+large records containing many bytes of satellite data. Thus, when focusing on the 
+problem of sorting, we typically assume that the input consists only of numbers. 
+Translating an algorithm for sorting numbers into a program for sorting records 
+is conceptually straightforward, although in a given engineering situation other 
+subtleties may make the actual programming task a challenge.</p>
+          <p>The ith order statistic of a set of n numbers is the ith smallest number in the set. 
+You can, of course, select the ith order statistic by sorting the input and indexing the 
+ith element of the output. With no assumptions about the input distribution, this method runs in 
+O(nlgn) time, as the lower bound proved in Chapter 8 of the book shows.
+The code for Quick sort is given below:</p>
+ 
+
+          <pre><code>
+            #include < bits/stdc++.h>
+using namespace std;
+
+int partition(int arr[],int low,int high)
+{
+  //choose the pivot
+  
+  int pivot=arr[high];
+  //Index of smaller element and Indicate
+  //the right position of pivot found so far
+  int i=(low-1);
+  
+  for(int j=low;j<=high;j++)
+  {
+    //If current element is smaller than the pivot
+    if(arr[j]< pivot)
+    {
+      //Increment index of smaller element
+      i++;
+      swap(arr[i],arr[j]);
+    }
+  }
+  swap(arr[i+1],arr[high]);
+  return (i+1);
+}
+
+// The Quicksort function Implement
+           
+void quickSort(int arr[],int low,int high)
+{
+  // when low is less than high
+  if(low < high)
+  {
+    // pi is the partition return index of pivot
+    
+    int pi=partition(arr,low,high);
+    
+    //Recursion Call
+    //smaller element than pivot goes left and
+    //higher element goes right
+    quickSort(arr,low,pi-1);
+    quickSort(arr,pi+1,high);
+  }
+}
+             
+ 
+int main() {
+  int arr[]={10,7,8,9,1,5};
+  int n=sizeof(arr)/sizeof(arr[0]);
+  // Function call
+  quickSort(arr,0,n-1);
+  //Print the sorted array
+  cout<<"Sorted Array\n";
+  for(int i=0;i< n;i++)
+  {
+    cout << arr[i]<<" ";
+  }
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section class="main-section" id="Data_Structures">
+          
+          <header>Data Structures</header>
+          
+          <p>Data structures are fundamental components in computer science that organize and store data efficiently, facilitating operations like insertion, deletion, and retrieval. They include arrays, which store elements in contiguous memory locations, linked lists, which use pointers to connect elements, stacks and queues for managing data in a Last-In-First-Out (LIFO) or First-In-First-Out (FIFO) manner, respectively. Trees, like binary trees and balanced trees such as AVL and red-black trees, offer hierarchical storage, while heaps enable efficient priority-based operations. Hash tables provide fast access to data through key-value pairs, and graphs represent relationships between data points. Mastery of these structures is essential for optimizing algorithms and solving a wide range of computational problems efficiently.</p>
+
+          <pre><code>
+#include< iostream >
+
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int data) {
+        this->data = data;
+        this->next = nullptr;
+    }
+};
+
+class LinkedList {
+private:
+    Node* head;
+
+public:
+    LinkedList() {
+        head = nullptr;
+    }
+
+    void append(int data) {
+        Node* new_node = new Node(data);
+        if (head == nullptr) {
+            head = new_node;
+            return;
+        }
+        Node* last_node = head;
+        while (last_node->next != nullptr) {
+            last_node = last_node->next;
+        }
+        last_node->next = new_node;
+    }
+
+    void prepend(int data) {
+        Node* new_node = new Node(data);
+        new_node->next = head;
+        head = new_node;
+    }
+
+    void deleteNode(int key) {
+        Node* temp = head;
+        Node* prev = nullptr;
+
+        if (temp != nullptr && temp->data == key) {
+            head = temp->next;
+            delete temp;
+            return;
+        }
+
+        while (temp != nullptr && temp->data != key) {
+            prev = temp;
+            temp = temp->next;
+        }
+
+        if (temp == nullptr)
+            return;
+
+        prev->next = temp->next;
+        delete temp;
+    }
+
+    void printList() {
+        Node* current_node = head;
+        while (current_node != nullptr) {
+            std::cout << current_node->data << " ";
+            current_node = current_node->next;
+        }
+        std::cout << std::endl;
+    }
+};
+          </code></pre>
+        </section>
+        <section class="main-section" id="Advanced_Design_and_Analysis_Techniques">
+          
+          <header>Advanced Design and Analysis Techniques</header>
+
+          <p>This part covers three important techniques used in designing and analyzing efficient algorithms: dynamic programming (Chapter 14), greedy algorithms (Chapter 15), and amortized analysis (Chapter 16). Earlier parts have presented other 
+widely applicable techniques, such as divide-and-conquer , randomization, and how 
+to solve recurrences. The techniques in this part are somewhat more sophisticated, 
+but you will be able to use them solve many computational problems. The themes 
+introduced in this part will recur later in this book. </p>
+          <p>Dynamic programming typically applies to optimization problems in which you 
+make a set of choices in order to arrive at an optimal solution, each choice generates 
+subproblems of the same form as the original problem, and the same subproblems 
+arise repeatedly. The key strategy is to store the solution to each such subproblem 
+rather than recompute it. Chapter 14 shows how this simple idea can sometimes 
+transform exponential-time algorithms into polynomial-time algorithms. 
+Like dynamic-programming algorithms, greedy algorithms typically apply to 
+optimization problems in which you make a set of choices in order to arrive at an 
+optimal solution. The idea of a greedy algorithm is to make each choice in a locally 
+optimal manner, resulting in a faster algorithm than you get with dynamic program- 
+ming. Chapter 15 will help you determine when the greedy approach works. 
+The technique of amortized analysis applies to certain algorithms that perform 
+a sequence of similar operations. Instead of bounding the cost of the sequence of 
+operations by bounding the actual cost of each operation separately, an amortized 
+analysis provides a worst-case bound on the actual cost of the entire sequence. One 
+advantage of this approach is that although some operations might be expensive, 
+many others might be cheap. You can use amortized analysis when designing 
+algorithms, since the design of an algorithm and the analysis of its running time 
+are often closely intertwined. Chapter 16 introduces three ways to perform an 
+amortized analysis of an algorithm. 
+</p>
+        </section>
+        <section class="main-section" id="Advanced_Data_Structures">
+          
+          <header>Advanced Data Structures</header>
+          
+          <p>This part returns to studying data structures that support operations on dynamic 
+sets, but at a more advanced level than Part III. One of the chapters, for example, 
+makes extensive use of the amortized analysis techniques from Chapter 16. </p>
+
+          <ul>
+            <li><p>Chapter 17 shows how to augment red-black trees adding additional informa- 
+tion in each node to support dynamic-set operations in addition to those covered 
+in Chapters 12 and 13. The first example augments red-black trees to dynamically 
+maintain order statistics for a set of keys. Another example augments them in a 
+different way to maintain intervals of real numbers. Chapter 17 includes a theo- 
+rem giving suffcient conditions for when a red-black tree can be augmented while 
+maintaining the 
+O(lgn)
+ running times for insertion and deletion. </p></li>
+ 
+            <li><p>Chapter 18 presents B-trees, which are balanced search trees specifcally designed to be stored on disks. Since disks operate much more slowly than random access memory. B-tree performance depends not only on how much computing time the dynamic-set operations consume but also on how many disk accesses they 
+perform. For each B-tree operation, the number of disk accesses increases with the 
+height of the B-tree, but B-tree operations keep the height low. </p></li>
+            <li>
+              <p>Chapter 19 examines data structures for disjoint sets. Starting with a universe 
+of 
+n
+ elements, each initially in its own singleton set, the operation UNION unites 
+two sets. At all times, the 
+n
+ elements are partitioned into disjoint sets, even as 
+calls to the UNION operation change the members of a set dynamically. The query 
+FIND-SET identiûes the unique set that contains a given element at the moment. 
+Representing each set as a simple rooted tree yields surprisingly fast operations: 
+a sequence of 
+m
+ operations runs in 
+O(m alpha(n))
+ time, where 
+alpha(n)
+ is an incredibly 
+slowly growing function
+ alpha(n)
+ is at most 4
+ in any conceivable application. The 
+amortized analysis that proves this time bound is as complex as the data structure 
+is simple.A Pseudo Code for red-black trees is as follows:</p>
+            </li>
+          </ul>
+<pre><code>class Node {
+    data
+    left
+    right
+    parent
+    color
+}
+
+class RedBlackTree {
+    root
+
+    rotateLeft(Node x)
+    rotateRight(Node x)
+    fixInsertion(Node z)
+    fixDeletion(Node x)
+    successor(Node x)
+    transplant(Node u, Node v)
+    deleteNode(Node z)
+    insert(int data)
+    remove(int data)
+    print()
+}
+
+function rotateLeft(Node x):
+    y = x.right
+    x.right = y.left
+    if y.left != null:
+        y.left.parent = x
+    y.parent = x.parent
+    if x.parent == null:
+        root = y
+    else if x == x.parent.left:
+        x.parent.left = y
+    else:
+        x.parent.right = y
+    y.left = x
+    x.parent = y
+
+function rotateRight(Node x):
+    y = x.left
+    x.left = y.right
+    if y.right != null:
+        y.right.parent = x
+    y.parent = x.parent
+    if x.parent == null:
+        root = y
+    else if x == x.parent.right:
+        x.parent.right = y
+    else:
+        x.parent.left = y
+    y.right = x
+    x.parent = y
+
+function fixInsertion(Node z):
+    while z != root && z.parent.color == RED:
+        if z.parent == z.parent.parent.left:
+            y = z.parent.parent.right
+            if y != null && y.color == RED:
+                z.parent.color = BLACK
+                y.color = BLACK
+                z.parent.parent.color = RED
+                z = z.parent.parent
+            else:
+                if z == z.parent.right:
+                    z = z.parent
+                    rotateLeft(z)
+                z.parent.color = BLACK
+                z.parent.parent.color = RED
+                rotateRight(z.parent.parent)
+        else:
+            ... (Symmetric cases)
+
+function fixDeletion(Node x):
+    while x != root && x.color == BLACK:
+        if x == x.parent.left:
+            w = x.parent.right
+            if w.color == RED:
+                w.color = BLACK
+                x.parent.color = RED
+                rotateLeft(x.parent)
+                w = x.parent.right
+            if w.left.color == BLACK && w.right.color == BLACK:
+                w.color = RED
+                x = x.parent
+            else:
+                if w.right.color == BLACK:
+                    w.left.color = BLACK
+                    w.color = RED
+                    rotateRight(w)
+                    w = x.parent.right
+                w.color = x.parent.color
+                x.parent.color = BLACK
+                w.right.color = BLACK
+                rotateLeft(x.parent)
+                x = root
+        else:
+            ... (Symmetric cases)
+   </code></pre>
+
+        </section>
+        <section class="main-section" id="Graph_Algorithms">
+          
+          <header>Graph Algorithms</header>
+          
+          <p>Graph problems pervade computer science, and algorithms for working with them 
+are fundamental to the ûeld. Hundreds of interesting computational problems are 
+couched in terms of graphs. This part touches on a few of the more signiûcant 
+ones. </p>
+
+          <ul>
+            <li><p>Chapter 20 shows how to represent a graph in a computer and then discusses 
+algorithms based on searching a graph using either breadth-ûrst search or depth- 
+ûrst search. The chapter gives two applications of depth-ûrst search: topologically 
+sorting a directed acyclic graph and decomposing a directed graph into its strongly 
+connected components. </p></li>
+            <li><p>Chapter 21 describes how to compute a minimum-weight spanning tree of a 
+graph: the least-weight way of connecting all of the vertices together when each 
+edge has an associated weight. The algorithms for computing minimum spanning 
+trees serve as good examples of greedy algorithms (see Chapter 15). </p></li>
+            <li><p>Chapters 22 and 23 consider how to compute shortest paths between vertices 
+when each edge has an associated length or weight.Chapter 22 shows how to 
+ûnd shortest paths from a given source vertex to all other vertices, and Chapter 23 
+examines methods to compute shortest paths between every pair of vertices.</p></li>
+            <li><p>Chapter 24 shows how to compute a maximum üow of material in a üow net- 
+work, which is a directed graph having a speciûed source vertex of material, a 
+speciûed sink vertex, and speciûed capacities for the amount of material that can 
+traverse each directed edge. This general problem arises in many forms, and a 
+good algorithm for computing maximum üows can help solve a variety of related 
+problems efûciently. </p></li>
+<li><p>Finally, Chapter 25 explores matchings in bipartite graphs: methods for pairing 
+up vertices that are partitioned into two sets by selecting edges that go between 
+the sets. Bipartite-matching problems model several situations that arise in the real 
+world. The chapter examines how to ûnd a matching of maximum cardinality; the 
+stable-marriage problem,= which has the highly practical application of matching 
+medical residents to hospitals; and assignment problems, which maximize the total 
+weight of a bipartite matching.<br><br>
+A Pseudo code for a graph is as follows:
+</li>
+</ul>
+<pre><code> 
+class Graph:
+    vertices
+
+Graph():
+    vertices = []
+
+addVertex(vertex):
+    vertices.add(vertex)
+
+addEdge(fromVertex, toVertex):
+    fromVertex.addEdge(toVertex)
+    toVertex.addEdge(fromVertex)  
+    // If undirected graph
+
+removeVertex(vertex):
+    vertices.remove(vertex)
+    for v in vertices:
+        v.removeEdge(vertex)
+
+removeEdge(fromVertex, toVertex):
+        fromVertex.removeEdge(toVertex)
+        toVertex.removeEdge(fromVertex)  
+        // If undirected graph
+
+DFS(startVertex):
+        visited = {}  // Dictionary to keeptrack of visited vertices
+        stack = [startVertex]
+        while stack is not empty:
+            currentVertex = stack.pop()
+            if currentVertex is not visited:
+                visited.add(currentVertex)
+                process(currentVertex)
+                for neighbor in currentVertex.neighbors:
+                    stack.push(neighbor)
+
+BFS(startVertex):
+        visited = {}  // Dictionary to keep track of visited vertices
+        queue = [startVertex]
+        while queue is not empty:
+            currentVertex = queue.dequeue()
+            if currentVertex is not visited:
+                visited.add(currentVertex)
+                process(currentVertex)
+                for neighbor in currentVertex.neighbors:
+                    queue.enqueue(neighbor)
+
+process(vertex):
+        // Function to process the vertex during traversal
+</code><pre>
+</p>
+         
+
+        </section>
+        <section class="main-section" id="Selected_Topics">
+          
+          <header>Selected Topics</header>
+          
+          <p>This part contains a selection of algorithmic topics that extend and complement 
+earlier material in this book. Some chapters introduce new models of computation 
+such as circuits or parallel computers. Others cover specialized domains such as 
+matrices or number theory. The last two chapters discuss some of the known lim- 
+itations to the design of efûcient algorithms and introduce techniques for coping 
+with those limitations.</p>
+          <p>One of the chapters presents an algorithmic model for parallel computing based on task- 
+parallel computing, and more specifcally, fork-join parallelism. The chapter introduces the basics of the model, showing how to quantify parallelism in terms of 
+the measures of work and span. It then investigates several interesting fork-join 
+algorithms, including algorithms for matrix multiplication and merge sorting.</p>
+          <p>A pseudo code for fork-join algorithm is provided here: </p>
+          <pre><code>
+class ForkJoinTask:
+    execute()
+    fork()
+    join()
+
+class ParallelTask(ForkJoinTask):
+    execute():
+        // Perform the task in parallel
+        // If the task is divisible, fork subtasks
+        if divisible():
+            leftSubtask.fork()
+            rightSubtask.fork()
+            leftSubtask.join()
+            rightSubtask.join()
+        else:
+            // Perform the task sequentially
+
+class ForkJoinPool:
+    execute(task):
+        task.execute()
+          </code>
+        </section>
+      </main>
+  </body>
+  </html>
+
+** end of undefined **
+
+** start of undefined **
+
+#main-doc{
+  font-family: "Georgia";
+  
+}
+#main-doc:not(#navbar){
+      margin-left:200px;
+}
+
+header#title{
+  font-size:20px;
+  color:#fff;
+  text-align:center;
+  border-bottom: 2px solid rgb(235, 230, 230);
+  padding:10px;
+}
+
+.main-section>header{
+  font-size:40px;
+  padding:10px 0;
+  color:#156760;
+
+}
+.main-section>p{
+  padding: 5px;
+}
+
+.main-section>pre>code{
+  display:block;
+  margin: auto;
+}
+
+main nav {
+    height: 100%;
+    width: 200px; /* Adjust width as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #24B3A8;
+    padding-top: 20px;
+}
+
+main nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+main nav ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+main nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+main nav ul li a:hover {
+    background-color: #156760;
+    border-radius:15px;
+}
+code{
+  padding-left:5px;
+  background-color:#A2ECE6;
+  border-radius:10px;
+  max-width:600px;
+}
+@media screen and (max-width:700px) {
+    *{
+        font-size:12px;   
+    }
+}
+
+** end of undefined **
+

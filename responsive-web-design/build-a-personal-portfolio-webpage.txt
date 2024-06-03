@@ -1,0 +1,183 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a href="#welcome-section">About</a>
+        <a href="#projects">My projects</a>
+        <a href="#contacts">Contact Me</a>
+      </nav>
+    </header>
+    <main>
+    <section id="welcome-section">
+      <h1>Hey there fellow developer</h1><br>
+      <p>welcome to my portfolio</p>
+    </section>
+    <h1 class="description">Checkout my projects below</h1>
+    <section id="projects">
+      
+      <div class="project-tile">
+        <figure>
+          <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLuavq8EIg-GOZlQfOcYdc-NcAqSInhgB9JQ&s" alt="Picture of a survey form"></a>
+          <figcaption>Survey Form</figcaption>
+        </figure>
+      </div>
+      <div class="project-tile">
+         <figure>
+          <a href="#" ><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/floral-tribute-4359497-3615401.png" alt="Picture of a Tribute Page"></a>
+          <figcaption>A Tribute Page</figcaption>
+        </figure>
+      </div>
+      <div class="project-tile">
+         <figure>
+          <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbSM9zpUlESd6iUUZeZYoB4G58CPTXpnba9Q&s" alt="A picture of a technical document"></a>
+          <figcaption> Technical Documentation</figcaption>
+        </figure>
+      </div>
+      <div class="project-tile">
+         <figure>
+          <a href="#"><img src="https://static.thenounproject.com/png/3407390-200.png" alt="Product Image"></a>
+          <figcaption>A product landing page</figcaption>
+        </figure>
+      </div>
+    </section>
+    
+    <section id="contacts">
+    <h1 class="description"> Let's work together</h1>
+    <div class="links">
+      <a id="profile-link" href="#" class="fa fa-facebook" target="_blank"> Facebook</a>  
+      <a href="#" class="fa fa-twitter" target="_blank"> Twitter</a>   
+      <a href="#" class="fa fa-linkedin" target="_blank"> Linked In</a> 
+      <a href="#" class="fa fa-github" target="_blank"> Github</a>  
+      <a href="#" class="fa fa-envelope" target="_blank">Email</a></div>
+       <p id="footer">&copy; Created for freeCodeCamp</p>
+    </section>
+    </main>
+      
+    
+  </body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+*{
+  margin:0;
+  padding:0;
+  font-family:verdana;
+}
+#navbar{
+  position:fixed;
+  width:100%;
+  display:flex;
+  justify-content:right;
+  height:50px;
+  background-color:#2A629A
+;
+z-index:1;}
+nav a{
+  color:white;
+  margin: auto 8px;
+  text-decoration:none;
+}
+main{ 
+  position:absolute;
+  top:50px;
+}
+
+#welcome-section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-items:center;
+  height:100vh;
+  width:100vw;
+  color:#FF7F3E;
+  background-color:#003285;
+}
+#welcome-section h1,p{
+  position:relative;
+  top:40vh;
+}
+img{
+  height:50vh;
+  width:40vw;
+}
+#projects{
+  height:100vh;
+  width:100vw;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
+}
+figcaption{
+  text-align:center;
+}
+.description{
+  width:calc(100%- 100px);
+  text-align:center;
+  margin:20px 10px;
+
+}
+#contacts{
+  background-color:#FFDA78;
+  height:70vh;
+}
+#contacts h1{
+  position:relative;
+  top:30%;
+  color:#003285;
+}
+.links{
+  display:flex;
+  position:relative;
+top:40%;
+align-items:center;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
+}
+.fa{
+  position:relative;
+  top:40%;
+  text-decoration:none;
+  font-size:18px;
+  color:#003285;
+}
+#footer{
+  position:relative;
+  top:80%;
+  border-top:3px solid black;
+  padding-top:5px;
+  text-align:center;
+}
+@media (max-width:600px){
+  h1{
+    font-size:15px;
+
+  }
+  p{
+    font-size:10px;
+  }
+}
+@media (min-width:1000px){
+  img{
+    width:400px;
+    height:400px;
+  }
+}
+
+
+  
+
+** end of undefined **
+

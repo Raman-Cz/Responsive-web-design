@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Form</title>
+    <link href="surveystyles.css" rel="stylesheet">
+    </head>
+  <body>
+    <div class="box">
+        <div class="main-form">
+            <h1 id="title">Survey Form</h1>
+             <p id="description"> Thank you for your time.</p>
+
+        <form id="survey-form">
+          <div class="form-group">
+           <label id="name-label">Name
+             <input required id="name" type="text" placeholder="Write your full name...">
+           </label>
+          </div>
+
+        <div class="form-group">
+          <label id="email-label">Email
+            <input required id="email" type="email" placeholder="example@hotmail.com">
+          </label>
+        </div>
+      
+      <div class="form-group">
+        <label id="number-label" >Age(optional)
+          <input required id="number" type="number" min="13" max="120" placeholder="Enter any age between 13 and 120">
+          </label>
+        </div>
+      
+      <div class="form-group">
+        <p>Which element describes you?</p>
+      <select id ="dropdown">
+        <option value="">--Select any one--</option>
+        <option value="Fire" >Fire</option>
+        <option value="Earth">Earth</option>
+        <option value="Wind">Wind</option>
+        <option value="Water">Water</option>
+      </select>
+      </div>
+      
+      <div class="form-group">
+        <p>Would you say that you are an honest person?</p>
+      <label>
+        <input id="choice1" name="tf" value="Yes" type="radio">Yes
+      </label>
+      <label>
+        <input id="choice2" name="tf" value="No" type="radio">No
+        </label>
+      </div>
+
+      <div class="form-group">
+        <p>What qualities do you identify yourself with?</p>
+        <label>
+          <input id="choice" name="1" type="checkbox" value="Humble">Humble
+        </label>
+        <br>
+        <label>
+        <input id="choice" name="1" type="checkbox" value="Kind">Kind
+        </label>
+        <br>
+        <label>
+        <input id="choice" name="1" type="checkbox" value="wise">Wise
+        </label>
+        <br>
+        <label><input id="choice" name="1" type="checkbox" value="people pleaser">People Pleaser
+        </label>
+        <br>
+      <label>
+        <input id="choice" name="1" type="checkbox" value="sarcastic">Sarcastic
+        </label>
+        <br>
+      <label>
+        <input id="choice" name="1" type="checkbox" value="witty">Witty
+        </label>
+      </div>
+
+      <div class="form-group">
+        <p>Anything you would like to add about yourself.</p>
+        <textarea id="textarea" placeholder="Write here..."></textarea>
+      </div>
+  
+      <div class="form-group">  
+        <button type="submit" name="Submit" id="submit">Submit
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,73 @@
+#main-doc{
+  font-family: "Georgia";
+  
+}
+#main-doc:not(#navbar){
+      margin-left:200px;
+}
+
+header#title{
+  font-size:20px;
+  color:#fff;
+  text-align:center;
+  border-bottom: 2px solid rgb(235, 230, 230);
+  padding:10px;
+}
+
+.main-section>header{
+  font-size:40px;
+  padding:10px 0;
+  color:#156760;
+
+}
+.main-section>p{
+  padding: 5px;
+}
+
+.main-section>pre>code{
+  display:block;
+  margin: auto;
+}
+
+main nav {
+    height: 100%;
+    width: 200px; /* Adjust width as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #24B3A8;
+    padding-top: 20px;
+}
+
+main nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+main nav ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+main nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+main nav ul li a:hover {
+    background-color: #156760;
+    border-radius:15px;
+}
+code{
+  padding-left:5px;
+  background-color:#A2ECE6;
+  border-radius:10px;
+  max-width:600px;
+}
+@media screen and (max-width:700px) {
+    *{
+        font-size:12px;   
+    }
+}
